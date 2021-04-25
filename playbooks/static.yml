@@ -1,0 +1,19 @@
+---
+- hosts: static
+  roles:
+    - { role: geerlingguy.nginx }
+  post_tasks:
+    - name: copy static site files
+      ansible.posix.synchronize:
+        src: "{{ static_site_files }}"
+        dest: "{{ root }}"
+        recursive: yes
+        times: yes
+        delete: yes
+
+    - name: set static site permissions
+      ansible.builtin.file:
+        path: "{{ root }}"
+        owner: "{{ nginx_user }}"
+        group: "{{ nginx_user }}"
+        recurse: yes
