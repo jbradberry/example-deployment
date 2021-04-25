@@ -1,4 +1,5 @@
 *~
 .vault_pass
 roles/
+collections/
 *.retry
