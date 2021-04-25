@@ -11,3 +11,7 @@ roles:
 
   - name: geerlingguy.htpasswd
     version: 2.0.0
+
+collections:
+  - name: ansible.posix
+    version: 1.2.0
