@@ -1,1 +1,2 @@
-test ansible_host=127.0.0.1
+# for a Vagrant VM
+test ansible_host=127.0.0.1 ansible_port=2222
