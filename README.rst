@@ -1,3 +1,13 @@
+Example Ansible Deployment
+==========================
+
+This project is the template of a deployment for a Django project,
+perhaps including statically generated pages.  The concept is similar
+to `Tequila <https://github.com/caktus/tequila/>`_, but making use of
+community-developed Ansible roles and collections.  Additionally, this
+deployment repo is decoupled from any project repo that it is intended
+to deploy.  I will also be attempting to use patterns that will allow
+it to be easily used in Ansible AWX or Tower.
 
 
 Notes
