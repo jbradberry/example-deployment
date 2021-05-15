@@ -1,19 +1,26 @@
 ---
 - hosts: static
+
+  become: yes
+
+  vars_files:
+    - vars/subsite-static.yml
+
   roles:
-    - { role: geerlingguy.nginx }
+    - geerlingguy.nginx
+
   post_tasks:
     - name: copy static site files
       ansible.posix.synchronize:
         src: "{{ static_site_files }}"
-        dest: "{{ root }}"
+        dest: "{{ server_root }}"
         recursive: yes
         times: yes
         delete: yes
 
     - name: set static site permissions
       ansible.builtin.file:
-        path: "{{ root }}"
+        path: "{{ server_root }}"
         owner: "{{ nginx_user }}"
         group: "{{ nginx_user }}"
         recurse: yes

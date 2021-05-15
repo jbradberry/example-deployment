@@ -1,0 +1,18 @@
+---
+
+server_name: "example.com"
+
+server_root: "/var/www/{{ server_name }}"
+
+# FIXME: we need to conditionally redirect 80 to 443, per inventory,
+# if the appropriate SSL stuff is configured.
+nginx_vhosts:
+  - listen: "80"
+    server_name: "{{ server_name }}"
+    # this redirects requests for www.example.com to example.com
+    server_name_redirect: "www.{{ server_name }}"
+    root: "{{ server_root }}"
+
+nginx_remove_default_vhost: true
+
+static_site_files: ""
